@@ -7,7 +7,6 @@ public class MathematicalPrograms {
     public static void main(String[] args) {
         isPrimeNumber();
 
-        wordsCount();
     }
 
     private static boolean isPrimeNumber() {

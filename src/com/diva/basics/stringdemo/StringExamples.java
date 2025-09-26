@@ -1,6 +1,9 @@
 package com.diva.basics.stringdemo;
 
 import java.util.Arrays;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class StringExamples {
 
@@ -124,7 +127,8 @@ public class StringExamples {
     private static void countWordFrequency(String sentence) {
         String words[] = sentence.split(" ");
 
-        System.out.println(Arrays.asList(words).stream().count()); 
+        Map<String, Long> wordCount = Arrays.asList(words).stream().collect(Collectors.groupingBy(s -> s, Collectors.counting()));
+        System.out.println(wordCount); 
 
         for(int i=0; i < words.length; i++){
             int count = 0;
@@ -135,5 +139,16 @@ public class StringExamples {
             }
             System.out.println(words[i] + "->" + count);
         }
+    }
+
+    private static void sentenceReverse(String s) {
+        String[] words  = s.split(" ");
+
+        String reversed = "";
+        for(int i = 0; i > words.length - 1; i--) {
+            reversed += words[i] + " ";
+        }
+        reversed = reversed.trim();
+        System.out.println("Reversed sentence :: " +reversed);
     }
 }

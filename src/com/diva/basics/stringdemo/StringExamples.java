@@ -1,6 +1,7 @@
 package com.diva.basics.stringdemo;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -15,6 +16,13 @@ public class StringExamples {
         nameFormatter("dhivakar");
 
         countWordFrequency("INFO Start ERROR Connection ERROR Timeout");
+
+        //FOrmat name
+        String formatName = "DHivAkaR thiyaGaTaJan";
+        String name = formatName(formatName);
+        System.out.println(formatName + "-"+name);
+
+        characterFreq();
     }
 
 
@@ -150,5 +158,45 @@ public class StringExamples {
         }
         reversed = reversed.trim();
         System.out.println("Reversed sentence :: " +reversed);
+    }
+
+    private static String formatName(String name) {
+        //Dhivakar thiyagarajan
+        //Split the words
+        //lowercase it
+        //Iterate it and get the each word to substring and uppercase first letter in the first word
+        //and rest should be lower case
+
+        name = name.toLowerCase();
+        String[] words = name.split(" ");
+        String formattedName = "";
+        for(int i=0; i < words.length; i++){
+            if(!words[i].isEmpty()){
+                String firstLetter = words[i].substring(0, 1).toUpperCase();
+                String rest = words[i].substring(1);
+                formattedName = formattedName + firstLetter + rest +" ";
+            }
+        }
+        return formattedName;
+        
+    }
+
+    private static void characterFreq() {
+        String word = "Java";
+        int count=0;
+        Map<Character, Integer> charFreqMap = new HashMap<>();
+        for(int i=0;  i < word.length();  i++){
+            char ch = word.charAt(i);
+           if(charFreqMap.containsKey(ch)) {
+                charFreqMap.put(ch, charFreqMap.get(ch)+1);
+           }else{
+            charFreqMap.put(ch, 1);
+           }
+        }
+
+        System.out.println("Char Freq map  :: " +charFreqMap);
+
+        Map<Character, Long> java8FreqMap = word.chars().mapToObj(ch -> (char) ch).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(java8FreqMap);
     }
 }

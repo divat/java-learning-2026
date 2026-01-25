@@ -74,6 +74,7 @@ public class StreamAPIDemo {
                              ));
         System.out.println("Average age of Male and Female Employees:: " + avgAge);
 
+
         //Print Average age of Male and Female Employees in each department.
         Map<String,Map<String, Double>> averageAge = getEmpList().stream()
                     .collect(Collectors.groupingBy(

@@ -11,15 +11,31 @@ public class HighOrderFunction {
         });
 
         System.out.println("=====>" +upperCase);
+
+        int sum = processComputation(new Operation(){
+            @Override
+            public int compute(int a, int b) {
+                return a + b; // behavior defined here
+            }
+        }, 4, 2);
+
+        System.out.println(sum);
+    
     }
 
     static String repeatAction(String s, Action action) {
        return action.perform(s);
     }
     
-
+    static int processComputation(Operation op, int a, int b) {
+        return op.compute(a, b);
+    }
 }
 
 interface Action {
     String perform(String s);
+}
+
+interface Operation {
+    int compute(int a, int b);
 }

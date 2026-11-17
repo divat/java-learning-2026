@@ -24,6 +24,11 @@ public class HashMapDemo {
         }
         System.out.println("Freq map ---> " +freqMap);
 
+
+        for(String key : freqMap.keySet()) {
+            System.out.println(key + "->" +freqMap.get(key));
+        }
+
     }
 }
 

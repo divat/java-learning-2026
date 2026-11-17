@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 public class StringExamples {
 
     public static void main(String[] args) {
+
         reverseWord("hello");
         
         System.out.println(isPalindrome("ammaa")); 
@@ -23,6 +24,9 @@ public class StringExamples {
         System.out.println(formatName + "-"+name);
 
         characterFreq();
+
+        internCheck();
+
     }
 
 
@@ -198,5 +202,14 @@ public class StringExamples {
 
         Map<Character, Long> java8FreqMap = word.chars().mapToObj(ch -> (char) ch).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         System.out.println(java8FreqMap);
+    }
+
+    private static void internCheck() {
+        String s1 = new String("Hello");
+        String s2 = "Hello";
+
+        //Check two strings are equal 
+        System.out.println("String equality => " +s1 == s2); //returns false - different objects
+        System.out.println("String equality with intern => " + s1.intern() == s2);
     }
 }

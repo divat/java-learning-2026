@@ -28,7 +28,11 @@ public class AsyncProcessing {
         // Wrap each provider in a CompletableFuture
         List<CompletableFuture<List<Integer>>> futures = providers.stream()
             .map(p -> CompletableFuture.supplyAsync(() -> {
-                try { return p.call(); } catch (Exception e) { throw new RuntimeException(e); }
+                try { 
+                    return p.call(); 
+                } catch (Exception e) {
+                     throw new RuntimeException(e); 
+                }
             }, executor))
             .collect(Collectors.toList());
 

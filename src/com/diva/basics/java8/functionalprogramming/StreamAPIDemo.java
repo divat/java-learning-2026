@@ -57,6 +57,18 @@ public class StreamAPIDemo {
 
         //Print employee details whose age is greater than 28 in the organisation.
         Predicate<Employee> isAgeGT28 = e -> e.getAge() > 28;
+
+       Predicate<Employee> ts = new Predicate<Employee>() {
+            @Override
+            public boolean test(Employee t) {
+                return p.getAge > 28;
+            }
+       };
+
+       getEmpList().stream().filter(ts).forEach(e -> {
+            System.out.println("Emp name using anonymous:: " +e.getName());
+        });
+
         getEmpList().stream().filter(isAgeGT28).forEach(e -> {
             System.out.println("Emp name :: " +e.getName());
         });

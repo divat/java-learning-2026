@@ -10,6 +10,9 @@ import java.util.Map;
 public class StringImmutable {
 
     public static void main(String[] args) throws Exception {
+
+        immutableStringTest();
+
         List<String> tasks = new ArrayList<>();
         tasks.add("T1");
         Employee e = new Employee(tasks);
@@ -20,6 +23,21 @@ public class StringImmutable {
 
         System.out.println(e.getTask());
 
+    }
+
+    private static void immutableStringTest() {
+        String str1 = "hello";
+        String str2 = "hello";
+        String str3 = new String("hello");
+
+        System.out.println(str1 == str2); 
+
+        str2 = str2.toUpperCase();//concat("World"); //after concat str2 points to a different object in heap
+
+        System.out.println(str1 == str2);
+
+        //using intern to check the string pool and heap memory object same
+        System.out.println(str1 == str3.intern());
     }
 
 }

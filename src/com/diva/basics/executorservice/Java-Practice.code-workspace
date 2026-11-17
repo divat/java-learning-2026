@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../../../.."
+		},
+		{
+			"name": "mfa-demo",
+			"path": "../../../../../../mfa-demo"
+		}
+	],
+	"settings": {
+		"java.project.sourcePaths": [
+			"src",
+			"lib"
+		]
+	}
+}

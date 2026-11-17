@@ -39,7 +39,7 @@ public class SortingStringArrayDemo {
 
     private static void sortStrings(String[] str) {
         Arrays.sort(str, Collections.reverseOrder());
-        Collections.synchronizedList(new ArrayList<>())
+        Collections.synchronizedList(new ArrayList<>());
     }
     
     
